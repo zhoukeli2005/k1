@@ -15,6 +15,10 @@
 		CE249EFA1C342FE7009D677D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE249EF91C342FE7009D677D /* OpenGLES.framework */; };
 		CE249EFD1C3430CD009D677D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE249EFC1C3430CD009D677D /* main.m */; };
 		CE249F021C34403D009D677D /* kdriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F011C34403D009D677D /* kdriver.cpp */; };
+		CE249F071C34C70C009D677D /* kstring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F061C34C70C009D677D /* kstring.cpp */; };
+		CE249F0B1C34D6FC009D677D /* kapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F0A1C34D6FC009D677D /* kapp.cpp */; };
+		CE249F101C34E92F009D677D /* kvalue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F0F1C34E92F009D677D /* kvalue.cpp */; };
+		CE249F121C34F2E2009D677D /* karray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F111C34F2E2009D677D /* karray.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,15 @@
 		CE249F011C34403D009D677D /* kdriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kdriver.cpp; sourceTree = "<group>"; };
 		CE249F031C344265009D677D /* kvalue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kvalue.h; sourceTree = "<group>"; };
 		CE249F041C3442AA009D677D /* kobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kobject.h; sourceTree = "<group>"; };
+		CE249F051C34BFF8009D677D /* kstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kstring.h; sourceTree = "<group>"; };
+		CE249F061C34C70C009D677D /* kstring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kstring.cpp; sourceTree = "<group>"; };
+		CE249F091C34D69D009D677D /* kapp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kapp.h; sourceTree = "<group>"; };
+		CE249F0A1C34D6FC009D677D /* kapp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kapp.cpp; sourceTree = "<group>"; };
+		CE249F0C1C34D71F009D677D /* klib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = klib.h; sourceTree = "<group>"; };
+		CE249F0D1C34D87D009D677D /* kcommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kcommon.h; sourceTree = "<group>"; };
+		CE249F0E1C34E663009D677D /* karray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = karray.h; sourceTree = "<group>"; };
+		CE249F0F1C34E92F009D677D /* kvalue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kvalue.cpp; sourceTree = "<group>"; };
+		CE249F111C34F2E2009D677D /* karray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = karray.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +100,12 @@
 		CE249EEC1C342F8E009D677D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CE249F081C34D62A009D677D /* app */,
 				CE249EFF1C343156009D677D /* driver */,
 				CE249EFE1C34313F009D677D /* base */,
 				CE249EED1C342F8E009D677D /* platform */,
+				CE249F0C1C34D71F009D677D /* klib.h */,
+				CE249F0D1C34D87D009D677D /* kcommon.h */,
 			);
 			name = src;
 			path = ../../src;
@@ -130,6 +146,11 @@
 			children = (
 				CE249F031C344265009D677D /* kvalue.h */,
 				CE249F041C3442AA009D677D /* kobject.h */,
+				CE249F051C34BFF8009D677D /* kstring.h */,
+				CE249F061C34C70C009D677D /* kstring.cpp */,
+				CE249F0E1C34E663009D677D /* karray.h */,
+				CE249F0F1C34E92F009D677D /* kvalue.cpp */,
+				CE249F111C34F2E2009D677D /* karray.cpp */,
 			);
 			name = base;
 			sourceTree = "<group>";
@@ -139,6 +160,15 @@
 			children = (
 			);
 			name = driver;
+			sourceTree = "<group>";
+		};
+		CE249F081C34D62A009D677D /* app */ = {
+			isa = PBXGroup;
+			children = (
+				CE249F091C34D69D009D677D /* kapp.h */,
+				CE249F0A1C34D6FC009D677D /* kapp.cpp */,
+			);
+			name = app;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,8 +243,12 @@
 			files = (
 				CE249EFD1C3430CD009D677D /* main.m in Sources */,
 				CE249EF51C342F8E009D677D /* AppDelegate.m in Sources */,
+				CE249F071C34C70C009D677D /* kstring.cpp in Sources */,
+				CE249F101C34E92F009D677D /* kvalue.cpp in Sources */,
 				CE249EF71C342F8E009D677D /* kGLKViewController.mm in Sources */,
+				CE249F121C34F2E2009D677D /* karray.cpp in Sources */,
 				CE249F021C34403D009D677D /* kdriver.cpp in Sources */,
+				CE249F0B1C34D6FC009D677D /* kapp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

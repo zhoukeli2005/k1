@@ -9,7 +9,7 @@
 #ifndef k_object_h_
 #define k_object_h_
 
-#include <cassert>
+#include "kcommon.h"
 
 namespace klib {
 	enum class kobject_type {
@@ -46,9 +46,17 @@ namespace klib {
 			assert(ref_count_ > 0);
 			ref_count_--;
 			if(ref_count_ == 0) {
-				delete this;
+				_destruct_this();
 			}
 		}
+		
+		int ref_count()
+		{
+			return ref_count_;
+		}
+		
+	protected:
+		virtual void _destruct_this() { delete this; }
 		
 	private:
 		int ref_count_;

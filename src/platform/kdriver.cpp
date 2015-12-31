@@ -7,12 +7,15 @@
 //
 
 #include "kdriver.h"
+#include "kapp.h"
 
 namespace klib {
 
+	static kapp app;
+	
 	void kdriver_init(int screen_width, int screen_height)
 	{
-		
+		app.init();
 	}
 	
 	void kdriver_update(double delta_time)

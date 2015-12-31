@@ -12,6 +12,10 @@
 #include "kobject.h"
 
 namespace klib {
+
+	class kstring;
+	class karray;
+	class khash;
 	
 	class kvalue
 	{
@@ -31,21 +35,27 @@ namespace klib {
 		
 	// creator
 	public:
-		static kvalue create_string(const char * format, ...);
-		static kvalue create_array();
-		static kvalue create_hash();
+		void create_string(const char * format, ...);
+		void create_array();
+		void create_hash();
 		
 	// interface
 	public:
 		bool is_none();
+		const char * cstr();
+		unsigned int hash();
 		
 	// type casts
 	public:
 		operator int();
 		operator double();
-		operator kstring * ();
-		operator karray * ();
-		operator khash * ();
+		operator kstring& ();
+		operator karray& ();
+	//	operator khash& ();
+		
+		karray& as_array() { return (karray &)(*this); }
+		kstring& as_string() { return (kstring &)(*this); }
+	//	khash& as_hash() { return (khash &)(*this); }
 		
 	// assignments
 	public:
@@ -53,6 +63,12 @@ namespace klib {
 		kvalue & operator = (double d);
 		kvalue & operator = (const char * str);
 		kvalue & operator = (const kvalue & r);
+		
+	// operators
+	public:
+		bool operator == (const kvalue & r);
+		bool operator != (const kvalue & r);
+	
 		
 	// internal functions
 	private:
@@ -63,7 +79,7 @@ namespace klib {
 		union _data_type {
 			int i;
 			double d;
-			void * p;
+			kobject * p;
 		} data_;
 		
 		kobject_type type_;
