@@ -41,21 +41,22 @@ namespace klib {
 		
 	// interface
 	public:
-		bool is_none();
-		const char * cstr();
-		unsigned int hash();
+		bool is_none() const;
+		void clear();	// set_none()
+		const char * cstr() const;
+		unsigned int hash() const;
 		
 	// type casts
 	public:
-		operator int();
-		operator double();
-		operator kstring& ();
-		operator karray& ();
-	//	operator khash& ();
+		operator int() const;
+		operator double() const;
+		operator kstring& () const;
+		operator karray& () const;
+		operator khash& () const;
 		
-		karray& as_array() { return (karray &)(*this); }
-		kstring& as_string() { return (kstring &)(*this); }
-	//	khash& as_hash() { return (khash &)(*this); }
+		karray& as_array() const { return this->operator karray & (); }
+		kstring& as_string() const { return this->operator kstring & (); }
+		khash& as_hash() const { return this->operator khash& (); }
 		
 	// assignments
 	public:
@@ -68,11 +69,6 @@ namespace klib {
 	public:
 		bool operator == (const kvalue & r);
 		bool operator != (const kvalue & r);
-	
-		
-	// internal functions
-	private:
-		void clear();
 		
 	// internal data
 	private:
@@ -84,6 +80,8 @@ namespace klib {
 		
 		kobject_type type_;
 	};
+	
+	extern kvalue g_kvalue_none;
 }
 
 

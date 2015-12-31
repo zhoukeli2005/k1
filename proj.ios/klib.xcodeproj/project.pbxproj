@@ -19,6 +19,10 @@
 		CE249F0B1C34D6FC009D677D /* kapp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F0A1C34D6FC009D677D /* kapp.cpp */; };
 		CE249F101C34E92F009D677D /* kvalue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F0F1C34E92F009D677D /* kvalue.cpp */; };
 		CE249F121C34F2E2009D677D /* karray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F111C34F2E2009D677D /* karray.cpp */; };
+		CE249F151C35052D009D677D /* khash.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F131C35052D009D677D /* khash.cpp */; };
+		CE249F201C3533BB009D677D /* kmath_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F171C3533BB009D677D /* kmath_util.cpp */; };
+		CE249F211C3533BB009D677D /* kmatrix4x4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F191C3533BB009D677D /* kmatrix4x4.cpp */; };
+		CE249F221C3533BB009D677D /* kvec3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE249F1E1C3533BB009D677D /* kvec3.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,17 @@
 		CE249F0E1C34E663009D677D /* karray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = karray.h; sourceTree = "<group>"; };
 		CE249F0F1C34E92F009D677D /* kvalue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kvalue.cpp; sourceTree = "<group>"; };
 		CE249F111C34F2E2009D677D /* karray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = karray.cpp; sourceTree = "<group>"; };
+		CE249F131C35052D009D677D /* khash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = khash.cpp; sourceTree = "<group>"; };
+		CE249F141C35052D009D677D /* khash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khash.h; sourceTree = "<group>"; };
+		CE249F171C3533BB009D677D /* kmath_util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kmath_util.cpp; sourceTree = "<group>"; };
+		CE249F181C3533BB009D677D /* kmath_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kmath_util.h; sourceTree = "<group>"; };
+		CE249F191C3533BB009D677D /* kmatrix4x4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kmatrix4x4.cpp; sourceTree = "<group>"; };
+		CE249F1A1C3533BB009D677D /* kmatrix4x4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kmatrix4x4.h; sourceTree = "<group>"; };
+		CE249F1B1C3533BB009D677D /* kmatrix_stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kmatrix_stack.h; sourceTree = "<group>"; };
+		CE249F1C1C3533BB009D677D /* krect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = krect.h; sourceTree = "<group>"; };
+		CE249F1D1C3533BB009D677D /* ksize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ksize.h; sourceTree = "<group>"; };
+		CE249F1E1C3533BB009D677D /* kvec3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = kvec3.cpp; sourceTree = "<group>"; };
+		CE249F1F1C3533BB009D677D /* kvec3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kvec3.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +115,8 @@
 		CE249EEC1C342F8E009D677D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				CE249F161C353396009D677D /* math */,
 				CE249F081C34D62A009D677D /* app */,
-				CE249EFF1C343156009D677D /* driver */,
 				CE249EFE1C34313F009D677D /* base */,
 				CE249EED1C342F8E009D677D /* platform */,
 				CE249F0C1C34D71F009D677D /* klib.h */,
@@ -151,15 +166,10 @@
 				CE249F0E1C34E663009D677D /* karray.h */,
 				CE249F0F1C34E92F009D677D /* kvalue.cpp */,
 				CE249F111C34F2E2009D677D /* karray.cpp */,
+				CE249F131C35052D009D677D /* khash.cpp */,
+				CE249F141C35052D009D677D /* khash.h */,
 			);
 			name = base;
-			sourceTree = "<group>";
-		};
-		CE249EFF1C343156009D677D /* driver */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = driver;
 			sourceTree = "<group>";
 		};
 		CE249F081C34D62A009D677D /* app */ = {
@@ -169,6 +179,22 @@
 				CE249F0A1C34D6FC009D677D /* kapp.cpp */,
 			);
 			name = app;
+			sourceTree = "<group>";
+		};
+		CE249F161C353396009D677D /* math */ = {
+			isa = PBXGroup;
+			children = (
+				CE249F171C3533BB009D677D /* kmath_util.cpp */,
+				CE249F181C3533BB009D677D /* kmath_util.h */,
+				CE249F191C3533BB009D677D /* kmatrix4x4.cpp */,
+				CE249F1A1C3533BB009D677D /* kmatrix4x4.h */,
+				CE249F1B1C3533BB009D677D /* kmatrix_stack.h */,
+				CE249F1C1C3533BB009D677D /* krect.h */,
+				CE249F1D1C3533BB009D677D /* ksize.h */,
+				CE249F1E1C3533BB009D677D /* kvec3.cpp */,
+				CE249F1F1C3533BB009D677D /* kvec3.h */,
+			);
+			name = math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,11 +269,15 @@
 			files = (
 				CE249EFD1C3430CD009D677D /* main.m in Sources */,
 				CE249EF51C342F8E009D677D /* AppDelegate.m in Sources */,
+				CE249F211C3533BB009D677D /* kmatrix4x4.cpp in Sources */,
 				CE249F071C34C70C009D677D /* kstring.cpp in Sources */,
+				CE249F201C3533BB009D677D /* kmath_util.cpp in Sources */,
 				CE249F101C34E92F009D677D /* kvalue.cpp in Sources */,
+				CE249F151C35052D009D677D /* khash.cpp in Sources */,
 				CE249EF71C342F8E009D677D /* kGLKViewController.mm in Sources */,
 				CE249F121C34F2E2009D677D /* karray.cpp in Sources */,
 				CE249F021C34403D009D677D /* kdriver.cpp in Sources */,
+				CE249F221C3533BB009D677D /* kvec3.cpp in Sources */,
 				CE249F0B1C34D6FC009D677D /* kapp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,7 +47,13 @@ namespace klib {
 				memset(cache_, 0, sizeof(kstring_imp *) * capacity_);
 				
 				for(int i = 0; i < old_size; ++i) {
-					insert(old_cache[i]);
+					if(old_cache[i]) {
+						kstring_imp * tmp = old_cache[i];
+						while(tmp) {
+							insert(tmp);
+							tmp = tmp->next;
+						}
+					}
 				}
 			}
 		}

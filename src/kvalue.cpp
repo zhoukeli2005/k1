@@ -9,8 +9,12 @@
 #include "kvalue.h"
 #include "karray.h"
 #include "kstring.h"
+#include "khash.h"
 
 namespace klib {
+	
+	// global none kvalue
+	kvalue g_kvalue_none;
 	
 	// ---- constructor ----
 	
@@ -54,6 +58,7 @@ namespace klib {
 	
 	void kvalue::create_string(const char *format, ...)
 	{
+		clear();
 		va_list ap;
 		va_start(ap, format);
 		
@@ -65,22 +70,27 @@ namespace klib {
 	
 	void kvalue::create_hash()
 	{
-		// TODO...
+		clear();
+		data_.p = khash_create();
+		type_ = kobject_type::E_HASH;
 	}
 	
 	// ---- interface ----
-	bool kvalue::is_none()
+	bool kvalue::is_none() const
 	{
+		if(this == &g_kvalue_none) {
+			return true;
+		}
 		return type_ == kobject_type::E_NONE;
 	}
 	
-	const char * kvalue::cstr()
+	const char * kvalue::cstr() const
 	{
 		// TODO...
 		return "";
 	}
 	
-	unsigned int kvalue::hash()
+	unsigned int kvalue::hash() const
 	{
 		switch(type_) {
 			case kobject_type::E_NONE:
@@ -106,36 +116,35 @@ namespace klib {
 	}
 	
 	// ---- type casts ----
-	kvalue::operator int()
+	kvalue::operator int() const
 	{
 		assert(type_ == kobject_type::E_INT);
 		return data_.i;
 	}
 	
-	kvalue::operator double()
+	kvalue::operator double() const
 	{
 		assert(type_ == kobject_type::E_DOUBLE);
 		return data_.d;
 	}
 	
-	kvalue::operator kstring & ()
+	kvalue::operator kstring & () const
 	{
 		assert(type_ == kobject_type::E_STRING);
 		return dynamic_cast<kstring &>(*data_.p);
 	}
 	
-	kvalue::operator karray & ()
+	kvalue::operator karray & () const
 	{
 		assert(type_ == kobject_type::E_ARRAY);
 		return dynamic_cast<karray &>(*data_.p);
 	}
 	
-	/*
-	kvalue::operator khash & ()
+	kvalue::operator khash & () const
 	{
 		assert(type_ == kobject_type::E_HASH);
 		return dynamic_cast<khash &>(*data_.p);
-	}*/
+	}
 	
 	// ---- assignments ----
 	kvalue & kvalue::operator = (int i)
@@ -228,7 +237,6 @@ namespace klib {
 		return !this->operator == (r);
 	}
 	
-	// ---- private functions ----
 	void kvalue::clear()
 	{
 		if(type_ >= kobject_type::E_ARRAY) {
